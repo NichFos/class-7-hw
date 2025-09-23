@@ -31,6 +31,10 @@ tags = {
 
 resource "aws_route_table" "class-7-public-rtb" {
 vpc_id   = aws_vpc.class-7-vpc.id 
+route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.class-7-igw.id 
+  }
 tags = {
     Name = "class-7-subnet"
     Service = "terraform"
